@@ -2,7 +2,12 @@
 
 import RPi.GPIO as GPIO
 import time
+import sys
+
+sys.path.append("/home/pi/code/Gardenpro/GardenYes/Scripts/modules")
 import ADC0832_tmp
+import lcd1602
+
 
 def setup():
 
@@ -20,13 +25,24 @@ def end():
 def loop():
 	while True:
 		sig = ADC0832_tmp.getResult(0)
-		print(sig)
-		time.sleep(0.5)
+		GPIO.cleanup()
+		lcd = lcd1602.Adafruit_CharLCD()
+		lcd.clear()
+		lcd.message("Soil moisture :")
+		lcd.message(str(sig))
+		time.sleep(1.0)
 
 if(__name__ == '__main__'):
 	setup()
 	try:
-		loop()
+		sig = ADC0832_tmp.getResult(0)
+		GPIO.cleanup()
+
+		lcd = lcd1602.Adafruit_CharLCD()
+		lcd.clear()
+		lcd.message("Soil moisture :")
+		lcd.message(str(sig))
+
 	except KeyboardInterrupt:
 		end()
 
