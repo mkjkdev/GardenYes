@@ -1,2 +1,3 @@
 #ignored files and folders
 Scripts/Adeept_RFID_Learning_Kit_Python_Code_for_RPi
+*.pyc
