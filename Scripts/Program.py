@@ -20,7 +20,7 @@ if(__name__ == "__main__"):
 
 		#post to database
 		try:
-			conn = mysql.connector.connect(host="localhost", user="root",passwd="delical300",database="gardenpro")
+			conn = mysql.connector.connect(host="localhost", user="root",passwd="",database="gardenpro")
 			cursor = conn.cursor()
 
 			sql = ("INSERT INTO garden (temperature, humidity, soil) VALUES (%s, %s, %s)")

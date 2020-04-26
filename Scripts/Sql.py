@@ -6,7 +6,7 @@ import config
 mydb = mysql.connector.connect(
 	host = "localhost"
 	user = "root"
-	passwd = "delical300"
+	passwd = ""
 )
 
 print(mydb)
